@@ -1,6 +1,4 @@
-# common-script
-
-# Digitalocean
+# Ubuntu - digitalocean  
 Check default mysql password  
 cat /root/.digitalocean_password    
 
@@ -24,3 +22,6 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 `mysql> GRANT ALL PRIVILEGES ON *.* TO 'wordpress'@'localhost';` OR  
 `GRANT ALL ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION;`  
 `mysql> FLUSH PRIVILEGES;`
+
+# Import SSH PublicKey  
+ssh-import-id s****l**c*r  
