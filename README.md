@@ -26,6 +26,9 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 `GRANT ALL ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION;`  
 `mysql> FLUSH PRIVILEGES;`  
 
+**Enable a2enmod - to use .htaccess (mod_rewrite)  **  
+`sudo a2enmod rewrite`  
+
 **Add & remove new user**  
 `sudo adduser USERNAME` 
 `sudo userdel USERNAME`  
