@@ -23,5 +23,9 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 `GRANT ALL ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION;`  
 `mysql> FLUSH PRIVILEGES;`
 
-# Import SSH PublicKey  
+# Import SSH PublicKey  - during Ubuntu Server Installation process
 ssh-import-id s****l**c*r  
+
+**Authorized key location**  
+ ~/.ssh/  
+ /etc/ssh/  
