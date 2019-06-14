@@ -12,7 +12,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 `sudo mysql -u root -p`    
 
 **Create Mysql Database**  
-`mysql> CREATE DATABASE piwik_db_name_here;`
+`mysql> CREATE DATABASE wordpress;`
 
 **Create User**  
 `mysql> CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'wordpress@123';`    
