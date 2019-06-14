@@ -6,7 +6,7 @@ Check default mysql password
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04    
 
 **Change folder/files owner**  
-`chown -R www-data:www-data /var/www/html/html`
+`chown -R www-data:www-data /var/www/html`
 
 **Login to MySql**  
 `sudo mysql -u root -p`    
