@@ -39,7 +39,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 `sudo deluser USERNAME GROUPNAME`  
 
 **User saved in**  
-`sudo vim /etc/passwd'  
+`sudo vim /etc/passwd`  
 
 **Disable Password Auth**  
 `sudo nano /etc/ssh/sshd_config` - find PasswordAuthentication no  
