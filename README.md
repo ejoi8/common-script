@@ -24,7 +24,25 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 `mysql> GRANT ALL PRIVILEGES ON database_name.* TO 'wordpress'@'localhost';` OR  
 `mysql> GRANT ALL PRIVILEGES ON *.* TO 'wordpress'@'localhost';` OR  
 `GRANT ALL ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION;`  
-`mysql> FLUSH PRIVILEGES;`
+`mysql> FLUSH PRIVILEGES;`  
+
+**Add & remove new user**  
+`sudo adduser USERNAME` 
+`sudo userdel USERNAME`  
+
+**Add & remove group**  
+`sudo groupadd GROUPNAME`
+`sudo groupdel GROUPNAME`  
+
+**Assign & revoke user in group**  
+`sudo adduser USERNAME GROUPNAME`
+`sudo deluser USERNAME GROUPNAME`  
+
+**User saved in**  
+`sudo vim /etc/passwd'  
+
+**Disable Password Auth**  
+`sudo nano /etc/ssh/sshd_config` - find PasswordAuthentication no  
 
 # Import SSH PublicKey  - during Ubuntu Server Installation process
 ssh-import-id s****l**c*r  
@@ -32,3 +50,16 @@ ssh-import-id s****l**c*r
 **Authorized key location**  
  ~/.ssh/  
  /etc/ssh/  
+
+# Group Permission
+777  
+7 - User Owner permission  
+7 - Group owner permission  
+7 - Everybody else permission  
+
+4 - Read  
+2 - Write  
+1 - Execute  
+
+PHP need execute so need execute permission (1)  
+
