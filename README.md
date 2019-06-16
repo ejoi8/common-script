@@ -21,9 +21,10 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 `mysql> CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'wordpress@123';`    
 
 **Grant Privileges**  
-`mysql> GRANT ALL PRIVILEGES ON database_name.* TO 'wordpress'@'localhost';` OR  
+`mysql> GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';` OR  
 `mysql> GRANT ALL PRIVILEGES ON *.* TO 'wordpress'@'localhost';` OR  
-`GRANT ALL ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION;`  
+`GRANT ALL ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION;` 
+
 `mysql> FLUSH PRIVILEGES;`  
 
 **Enable a2enmod - to use .htaccess (mod_rewrite)**  
