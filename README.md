@@ -23,7 +23,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 **Grant Privileges**  
 `mysql> GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';` OR  
 `mysql> GRANT ALL PRIVILEGES ON *.* TO 'wordpress'@'localhost';` OR  
-`GRANT ALL ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION;` 
+`mysql> GRANT ALL ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION;` 
 
 `mysql> FLUSH PRIVILEGES;`  
 
