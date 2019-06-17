@@ -76,9 +76,9 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
 `php artisan make:migration add_votes_to_users_table --table=users`  
 
 **Add column to existing table**  
-`  
-php artisan migrate:make add_profile_and_bio_to_users  
+`php artisan migrate:make add_profile_and_bio_to_users`  
 
+`
 class AddProfileToUsers extends Migration  
 {  
     public function up()  
