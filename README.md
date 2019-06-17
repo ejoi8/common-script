@@ -73,10 +73,10 @@ PHP need execute so need execute permission (1)
 https://laravel.com/docs/5.8/migrations#column-modifiers  
 
 **Create table**  
-`php artisan make:migration add_votes_to_users_table --table=users`  
+`php artisan make:migration create_users_table --create=users`  
 
 **Add column to existing table**  
-`php artisan migrate:make add_profile_and_bio_to_users`  
+`php artisan make:migration add_votes_to_users_table --table=users`  
 
     public function up()  
     {  
@@ -86,7 +86,7 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
     }  
     public function down()  
     {  
-        Schema::table('shop_users', function (Blueprint $table) {  
+        Schema::table('users', function (Blueprint $table) {  
             $table->dropColumn(['profile']);  
         });  
     }   
