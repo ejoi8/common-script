@@ -78,18 +78,16 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
 **Add column to existing table**  
 `php artisan migrate:make add_profile_and_bio_to_users`  
 
-`
-  public function up()  
+    public function up()  
     {  
         Schema::table('users', function (Blueprint $table) {  
             $table->string('profile')->nullable();  
         });  
     }  
-
     public function down()  
     {  
         Schema::table('shop_users', function (Blueprint $table) {  
             $table->dropColumn(['profile']);  
         });  
     }   
-`  
+
