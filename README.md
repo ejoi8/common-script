@@ -92,7 +92,7 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
     }
     
     
-    //SAMPLE IF SET FOREIGN KEY ON EXISTIN TABLE
+**SAMPLE IF SET FOREIGN KEY ON EXISTIN TABLE**  
     
     /**
      * Run the migrations.
