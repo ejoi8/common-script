@@ -79,9 +79,7 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
 `php artisan migrate:make add_profile_and_bio_to_users`  
 
 `
-class AddProfileToUsers extends Migration  
-{  
-    public function up()  
+  public function up()  
     {  
         Schema::table('users', function (Blueprint $table) {  
             $table->string('profile')->nullable();  
@@ -93,6 +91,5 @@ class AddProfileToUsers extends Migration
         Schema::table('shop_users', function (Blueprint $table) {  
             $table->dropColumn(['profile']);  
         });  
-    }  
-}  
+    }   
 `  
