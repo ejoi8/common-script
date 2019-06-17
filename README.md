@@ -77,17 +77,49 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
 
 **Add column to existing table**  
 `php artisan make:migration add_votes_to_users_table --table=users`  
-`
-public function up()  
-{  
-    Schema::table('users', function (Blueprint $table) {  
-        $table->string('profile')->nullable();  
-    });  
-}  
-public function down()  
-{  
-    Schema::table('users', function (Blueprint $table) {  
-        $table->dropColumn(['profile']);  
-    });  
-}
-`
+
+    public function up()  
+    {  
+        Schema::table('users', function (Blueprint $table) {  
+            $table->string('profile')->nullable();  
+        });  
+    }  
+    public function down()  
+    {  
+        Schema::table('users', function (Blueprint $table) {  
+            $table->dropColumn(['profile']);  
+        });  
+    }
+    
+    
+    //SAMPLE IF SET FOREIGN KEY ON EXISTIN TABLE
+    
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::disableForeignKeyConstraints();
+        Schema::table('user', function (Blueprint $table) {
+            $table->unsignedInteger('user_id')->after('user_id')->default('1');
+
+            $table->foreign('user_id')
+                    ->references('id')->on('user_category')
+                    ->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('user', function (Blueprint $table) {
+            $table->dropForeign('user_user_id_foreign');
+            $table->dropColumn(['user_id']);
+        });
+    }
