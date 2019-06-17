@@ -77,17 +77,17 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
 
 **Add column to existing table**  
 `php artisan make:migration add_votes_to_users_table --table=users`  
-
-    public function up()  
-    {  
-        Schema::table('users', function (Blueprint $table) {  
-            $table->string('profile')->nullable();  
-        });  
-    }  
-    public function down()  
-    {  
-        Schema::table('users', function (Blueprint $table) {  
-            $table->dropColumn(['profile']);  
-        });  
-    }   
-
+`
+public function up()  
+{  
+    Schema::table('users', function (Blueprint $table) {  
+        $table->string('profile')->nullable();  
+    });  
+}  
+public function down()  
+{  
+    Schema::table('users', function (Blueprint $table) {  
+        $table->dropColumn(['profile']);  
+    });  
+}
+`
