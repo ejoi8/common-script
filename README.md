@@ -83,7 +83,14 @@ ssh-import-id s****l**c*r
 PHP need execute so need execute permission (1)  
 
 **LETS ENCRYPT SSL**  
-https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04
+https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04  
+
+# INSTALL WORDPRESS  
+    $ wget -c http://wordpress.org/latest.tar.gz
+    $ tar -xzvf latest.tar.gz
+    $ sudo rsync -av wordpress/* /var/www/html/
+    $ sudo chown -R www-data:www-data /var/www/html/
+    $ sudo chmod -R 755 /var/www/html/
 
 # Laravel  
 
