@@ -82,6 +82,9 @@ ssh-import-id s****l**c*r
 
 PHP need execute so need execute permission (1)  
 
+**LETS ENCRYPT SSL**  
+https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04
+
 # Laravel  
 
 **Table datatyep modified**  
