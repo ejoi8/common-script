@@ -146,6 +146,9 @@ Here are the list of **.pem** files you see under **/etc/letsencrypt/live/<yourd
 **fullchain.pem** - Combined certificate, includes domain and CA certificate  
 **privkey.pem** - Private key  
 
+https://www.itzgeek.com/how-tos/linux/how-to-configure-lets-encrypt-ssl-in-openlitespeed-web-server.html
+https://servernesia.com/833/mengaktifkan-https-openlitespeed/
+
 **Allow to access WebAdmin**  
 `ufw allow 7080`  
 
