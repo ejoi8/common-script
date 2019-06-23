@@ -1,6 +1,17 @@
 # Ubuntu - digitalocean  
 Check default mysql password  
-`cat /root/.digitalocean_password`    
+`cat /root/.digitalocean_password`
+
+**LITESPEED**  
+
+**Get the WebAdmin admin password:**  
+`cat .litespeed_password`
+
+**Get the MySQL root password:**  
+`sudo sed -n 1p .db_password`  
+
+**wordpress username pass**  
+sudo sed -n 2p .db_password  
 
 **Install PhpMyadmin**  
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04    
