@@ -139,12 +139,12 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
 **Lets encrypt SSL**  
 `certbot certonly --webroot -w /var/www/html -d www.website.com`  
 
-Here are the list of .pem files you see under /etc/letsencrypt/live/<yourdomain>/ directory.
+Here are the list of **.pem** files you see under **/etc/letsencrypt/live/<yourdomain>/** directory.
 
-| cert.pem      | SSL certificate of your domain |
-| chain.pem      | CA certificate |
-| fullchain.pem | Combined certificate, includes domain and CA certificate.|
-| privkey.pem | Private key|
+**cert.pem** - SSL certificate of your domain  
+**chain.pem** - CA certificate  
+**fullchain.pem** - Combined certificate, includes domain and CA certificate  
+**privkey.pem** - Private key  
 
 **Allow to access WebAdmin**  
 `ufw allow 7080`  
