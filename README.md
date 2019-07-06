@@ -1,4 +1,8 @@
 # Ubuntu - digitalocean  
+
+install lamp ubuntu 18.04  
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04  
+
 Check default mysql password  
 `cat /root/.digitalocean_password`
 
