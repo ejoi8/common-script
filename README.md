@@ -1,9 +1,15 @@
 # Ubuntu - digitalocean  
 
-install lamp ubuntu 18.04  
+**install php7 module**  
+GD PHP Extension: 'sudo apt-get install php-gd'  
+IMAP PHP Extension: 'sudo apt-get install php-imap'  
+MBString PHP Extension: 'sudo apt-get install php-mbstring'  
+cURL PHP Extension: 'sudo apt-get install php-curl'  
+
+**install lamp ubuntu 18.04**  
 https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04  
 
-Check default mysql password  
+**Check default mysql password**  
 `cat /root/.digitalocean_password`
 
 **Install PhpMyadmin**  
