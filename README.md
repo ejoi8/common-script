@@ -41,11 +41,11 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 **Enable a2enmod - to use .htaccess (mod_rewrite)**  
 `sudo a2enmod rewrite`  
 add:  
-`<Directory /var/www/html>  
-        Options Indexes FollowSymLinks MultiViews  
-        AllowOverride All  
-        Require all granted  
-</Directory>`  
+        <Directory /var/www/html>  
+                Options Indexes FollowSymLinks MultiViews  
+                AllowOverride All  
+                Require all granted  
+        </Directory>
 `sudo nano /etc/apache2/sites-available/000-default.conf`  
 
 **Add & remove new user**  
