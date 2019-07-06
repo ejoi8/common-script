@@ -5,6 +5,7 @@ GD PHP Extension: 'sudo apt-get install php-gd'
 IMAP PHP Extension: 'sudo apt-get install php-imap'  
 MBString PHP Extension: 'sudo apt-get install php-mbstring'  
 cURL PHP Extension: 'sudo apt-get install php-curl'  
+Zip PHP Extension: 'sudo apt-get install php-zip'  
 
 **install lamp ubuntu 18.04**  
 https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04  
