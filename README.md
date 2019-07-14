@@ -171,6 +171,10 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
 **Allow to access WebAdmin**  
 `ufw allow 7080`  
 
+**Block to access WebAdmin** 
+
+        ufw deny 7080
+
 **Get the WebAdmin admin password:**  
 `cat .litespeed_password`
 
