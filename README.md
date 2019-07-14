@@ -219,9 +219,12 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
 
 # GENERAL COMMAND  
 
+**to check current timezone**
+
+        timedatectl 
+
 **Change server timezone**
 
         timedatectl list-timezones | grep -i asia
         sudo unlink /etc/localtime
         sudo ln -s /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
-        timedatectl #to check current timezone
