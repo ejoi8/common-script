@@ -55,45 +55,60 @@ add:
                 AllowOverride All  
                 Require all granted  
         </Directory>  
-        
+
+Then run:
+
         sudo nano /etc/apache2/sites-available/000-default.conf  
 
 **Add & remove new user**  
-`sudo adduser USERNAME` 
-`sudo userdel USERNAME`  
+
+        sudo adduser USERNAME
+        sudo userdel USERNAME
 
 **Add & remove group**  
-`sudo groupadd GROUPNAME`
-`sudo groupdel GROUPNAME`  
+
+        sudo groupadd GROUPNAME
+        sudo groupdel GROUPNAME 
 
 **Assign & revoke user in group**  
-`sudo adduser USERNAME GROUPNAME`
-`sudo deluser USERNAME GROUPNAME`  
+
+        sudo adduser USERNAME GROUPNAME
+        sudo deluser USERNAME GROUPNAME  
 
 **User saved in**  
-`sudo vim /etc/passwd`  
+
+        sudo vim /etc/passwd
 
 **Disable Password Auth**  
-`sudo nano /etc/ssh/sshd_config` - find PasswordAuthentication no  
+
+find PasswordAuthentication no 
+
+        sudo nano /etc/ssh/sshd_config
 
 # Import SSH PublicKey  - during Ubuntu Server Installation process
-ssh-import-id s****l**c*r  
 
-**Authorized key location**  
- ~/.ssh/  
- /etc/ssh/  
+        ssh-import-id s****l**c*r  
+
+**Authorized key location** 
+
+         ~/.ssh/  
+         /etc/ssh/  
 
 # Group Permission
-777  
-7 - User Owner permission  
-7 - Group owner permission  
-7 - Everybody else permission  
 
-4 - Read  
-2 - Write  
-1 - Execute  
-
-PHP need execute so need execute permission (1)  
+        4 - Read  
+        2 - Write  
+        1 - Execute 
+        
+        777  
+        
+        how the 7 get value is 4+2+1 = 7
+        
+        7 - User Owner permission
+        7 - Group owner permission
+        7 - Everybody else permission
+        
+        PHP need execute so need execute permission (1)  
 
 **LETS ENCRYPT SSL**  
 https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04  
@@ -111,23 +126,27 @@ https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s
 https://laravel.com/docs/5.8/migrations#column-modifiers  
 
 **Create table**  
-`php artisan make:migration create_users_table --create=users`  
+
+        php artisan make:migration create_users_table --create=users 
 
 **Add column to existing table**  
-`php artisan make:migration add_votes_to_users_table --table=users`  
 
-    public function up()  
-    {  
-        Schema::table('users', function (Blueprint $table) {  
-            $table->string('profile')->nullable();  
+        php artisan make:migration add_votes_to_users_table --table=users
+        
+Inside the generated file:  
+
+        public function up()  
+        {  
+                Schema::table('users', function (Blueprint $table) {  
+                $table->string('profile')->nullable();  
         });  
-    }  
-    public function down()  
-    {  
-        Schema::table('users', function (Blueprint $table) {  
-            $table->dropColumn(['profile']);  
+        }  
+        public function down()  
+        {  
+                Schema::table('users', function (Blueprint $table) {  
+                $table->dropColumn(['profile']);  
         });  
-    }
+        }
     
     
 **SAMPLE IF SET FOREIGN KEY ON EXISTIN TABLE**  
@@ -164,8 +183,9 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
  
 # OPENLITESPEED - digitalocean  
 
-**Lets encrypt SSL**  
-`certbot certonly --webroot -w /var/www/html -d www.website.com`  
+**Lets encrypt SSL** 
+
+        certbot certonly --webroot -w /var/www/html -d www.website.com 
 
 Here are the list of **.pem** files you see under **/etc/letsencrypt/live/<yourdomain>/** directory.
 
@@ -178,20 +198,24 @@ https://www.itzgeek.com/how-tos/linux/how-to-configure-lets-encrypt-ssl-in-openl
 https://servernesia.com/833/mengaktifkan-https-openlitespeed/
 
 **Allow to access WebAdmin**  
-`ufw allow 7080`  
+
+        ufw allow 7080
 
 **Block to access WebAdmin** 
 
         ufw deny 7080
 
 **Get the WebAdmin admin password:**  
-`cat .litespeed_password`
+
+        cat .litespeed_password
 
 **Get the MySQL root password:**  
-`sudo sed -n 1p .db_password`  
 
-**wordpress username pass**  
-sudo sed -n 2p .db_password  
+        sudo sed -n 1p .db_password  
+
+**wordpress username pass**
+
+        sudo sed -n 2p .db_password  
 
 # GENERAL COMMAND  
 
