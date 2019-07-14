@@ -256,6 +256,9 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
         # │ │ │ │ │
         # │ │ │ │ │
         # * * * * *  command_to_execute
+        #
+        # crontab time helper
+        # https://crontab.guru
 
 crontab for current user
 
