@@ -11,16 +11,19 @@ Zip PHP Extension: 'sudo apt-get install php-zip'
 https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04  
 
 **Check default mysql password**  
-`cat /root/.digitalocean_password`
+
+        cat /root/.digitalocean_password
 
 **Install PhpMyadmin**  
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04    
 
 **Install ZipArchive**  
-`apt-get install zip unzip`  
+
+        apt-get install zip unzip   
 
 **Change folder/files owner**  
-`chown -R www-data:www-data /var/www/html`
+
+        chown -R www-data:www-data /var/www/html
 
 **Login to MySql**  
 `sudo mysql -u root -p`    
