@@ -245,7 +245,7 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
         sudo unlink /etc/localtime
         sudo ln -s /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
 
-**Crontab/scheduler
+**Crontab/scheduler**
 
         # ┌───────────── minute (0 - 59)
         # │ ┌───────────── hour (0 - 23)
@@ -260,3 +260,7 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
 crontab for current user
 
         crontab -l
+
+Add crontab
+
+        crontab -e
