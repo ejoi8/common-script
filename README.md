@@ -19,30 +19,35 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 
 **Install ZipArchive**  
 
-        apt-get install zip unzip   
+        apt-get install zip unzip
 
 **Change folder/files owner**  
 
         chown -R www-data:www-data /var/www/html
 
 **Login to MySql**  
-`sudo mysql -u root -p`    
+
+        sudo mysql -u root -p    
 
 **Create Mysql Database**  
-`mysql> CREATE DATABASE wordpress;`
+
+        mysql> CREATE DATABASE wordpress;
 
 **Create User**  
-`mysql> CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'wordpress@123';`    
+
+        mysql> CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'wordpress@123';    
 
 **Grant Privileges**  
-`mysql> GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';` OR  
-`mysql> GRANT ALL PRIVILEGES ON *.* TO 'wordpress'@'localhost';` OR  
-`mysql> GRANT ALL ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION;` 
 
-`mysql> FLUSH PRIVILEGES;`  
+        mysql> GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost'; OR  
+        mysql> GRANT ALL PRIVILEGES ON *.* TO 'wordpress'@'localhost'; OR  
+        mysql> GRANT ALL ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION; 
+
+        mysql> FLUSH PRIVILEGES;  
 
 **Enable a2enmod - to use .htaccess (mod_rewrite)**  
-`sudo a2enmod rewrite`  
+
+       sudo a2enmod rewrite
 add:  
 
         <Directory /var/www/html>  
@@ -50,7 +55,8 @@ add:
                 AllowOverride All  
                 Require all granted  
         </Directory>  
-`sudo nano /etc/apache2/sites-available/000-default.conf`  
+        
+        sudo nano /etc/apache2/sites-available/000-default.conf  
 
 **Add & remove new user**  
 `sudo adduser USERNAME` 
