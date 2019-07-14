@@ -41,11 +41,12 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 **Enable a2enmod - to use .htaccess (mod_rewrite)**  
 `sudo a2enmod rewrite`  
 add:  
+
         <Directory /var/www/html>  
                 Options Indexes FollowSymLinks MultiViews  
                 AllowOverride All  
                 Require all granted  
-        </Directory>
+        </Directory>  
 `sudo nano /etc/apache2/sites-available/000-default.conf`  
 
 **Add & remove new user**  
@@ -179,3 +180,10 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
 **wordpress username pass**  
 sudo sed -n 2p .db_password  
 
+# GENERAL COMMAND  
+
+**Change server timezone**
+
+        timedatectl list-timezones | grep -i asia
+        sudo unlink /etc/localtime
+        sudo ln -s /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
