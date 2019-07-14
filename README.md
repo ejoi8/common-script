@@ -244,3 +244,19 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
         timedatectl list-timezones | grep -i asia
         sudo unlink /etc/localtime
         sudo ln -s /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
+
+**Crontab/scheduler
+
+        # ┌───────────── minute (0 - 59)
+        # │ ┌───────────── hour (0 - 23)
+        # │ │ ┌───────────── day of month (1 - 31)
+        # │ │ │ ┌───────────── month (1 - 12)
+        # │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday;
+        # │ │ │ │ │                                       7 is also Sunday on some systems)
+        # │ │ │ │ │
+        # │ │ │ │ │
+        # * * * * *  command_to_execute
+
+crontab for current user
+
+        crontab -l
