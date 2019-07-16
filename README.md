@@ -138,6 +138,32 @@ https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s
 
 # Laravel  
 
+**error message**  
+
+        @if ($errors->any())
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="m-form__content">
+                        <div class="m-alert m-alert--icon alert alert-danger" role="alert" id="m_form_1_msg">
+                            <div class="m-alert__icon">
+                                <i class="la la-warning"></i>
+                            </div>
+                            <div class="m-alert__text">
+                                Oh snap! Change a few things up and try submitting again.
+                                 @foreach($errors->all() as $error)
+                                     <li>{{ $error }}</li>
+                                @endforeach
+                            </div>
+                            <div class="m-alert__close">
+                                <button type="button" class="close" data-close="alert" aria-label="Close">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
 **Table datatyep modified**  
 https://laravel.com/docs/5.8/migrations#column-modifiers  
 
@@ -271,3 +297,7 @@ Add crontab
 **Change server time behind proxy**
 
         sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
+        
+        
+        
+ 
