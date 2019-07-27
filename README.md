@@ -319,6 +319,13 @@ Add crontab
 **Commit**
 
         git commit -m "Commit message"
+      
+**Workflow to create new repo for ease of use**
+        
+        1. Create new repo in github & choose generate README.md
+        2. Clone to your local machine useing: git clone https://github.com/xxxx
+        3. Add your project inside the folder
+        4. git push
 
 
 
