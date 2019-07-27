@@ -300,4 +300,26 @@ Add crontab
         
         
         
- 
+# Git  
+
+**First setup**
+
+        $ git config --global user.name "John Doe"
+        $ git config --global user.email johndoe@example.com
+        $ git config --list
+        
+**Initialization**  
+
+        $ git init
+        
+**Add files**
+
+        git add <filename>
+        
+**Commit**
+
+        git commit -m "Commit message"
+
+
+
+
