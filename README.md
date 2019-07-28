@@ -170,6 +170,8 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
 **Create table**  
 
         php artisan make:migration create_users_table --create=users 
+        OR
+        php artisan make:model -m Users <-- auto create migration & model.
 
 **Add column to existing table**  
 
