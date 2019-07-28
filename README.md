@@ -327,6 +327,12 @@ Add crontab
         3. Add your project inside the folder
         4. git push
 
+        OR
+        
+        1. Create new repo in github & choose generate README.md
+        2. git remote add <name> <url>
+        3. git push <name>
+
 
 
 
