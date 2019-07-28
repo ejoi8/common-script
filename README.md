@@ -331,7 +331,7 @@ Add crontab
         
         1. Create new repo in github & choose generate README.md
         2. git remote add <name> <url>
-        3. git push <name>
+        3. git push <name> or git push --set-upstream <name> master (because the repo was created)
 
 
 
