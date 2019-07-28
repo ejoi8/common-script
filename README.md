@@ -322,16 +322,10 @@ Add crontab
       
 **Workflow to create new repo for ease of use**
         
-        1. Create new repo in github & choose generate README.md
-        2. Clone to your local machine useing: git clone https://github.com/xxxx
-        3. Add your project inside the folder
-        4. git push
-
-        OR
+        1. Create new repo in github.
+        2. git remote add origin <github repo url> <- local machine
+        3. git push -u origin master <- local machine
         
-        1. Create new repo in github & choose generate README.md
-        2. git remote add <name> <url>
-        3. git push <name> or git push --set-upstream <name> master (because the repo was created)
 
 
 
