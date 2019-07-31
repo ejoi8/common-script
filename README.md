@@ -177,6 +177,10 @@ https://laravel.com/docs/5.8/migrations#column-modifiers
 
         php artisan make:migration add_votes_to_users_table --table=users
         
+**Rollback/refresh spesifik table**  
+
+        php artisan migrate:refresh --path=/database/migrations/fileName.php
+        
 Inside the generated file:  
 
         public function up()  
