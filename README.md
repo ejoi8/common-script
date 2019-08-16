@@ -273,6 +273,8 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
         Virtual Host Name: yourwebsite.com
         Virtual Host Root: /var/www/yourwebsite.com
         Config File: /usr/local/lsws/conf/vhosts/wordpress/yourwebsite.com.conf
+        Enable Scripts/ExtApps: Yes
+        Restrained: No
 
 
         docRoot                   /var/www/yourwebdir.com
@@ -298,6 +300,7 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
 4. Generate LetsEncrypt Cert:
 
         certbot certonly --webroot -w /var/www/html -d www.yourwebsite.com 
+        
 5. Add SSL path at `Virtual Hosts > Choose domain > SSL` add add the following:
 
         Private Key File: /etc/letsencrypt/live/www.yourwebsite.com/privkey.pem
