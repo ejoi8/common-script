@@ -264,6 +264,46 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
 **wordpress username pass**
 
         sudo sed -n 2p .db_password  
+        
+# OPENLITESPEED ADD NEW SUBDOMAIN
+
+1. Goto LiteSpeed WebAdmin Console: `xxx.xxx.xx.xx:7080` . Get admin password: `cat .litespeed_password`
+2. Add `Virtual Hosts`, add `Virtual Host Name`, add `Virtual Host Root` create folder, add `Config File` create by copy other config and change accordingly. `Config File` syntax as below (ignore KeyFile,certFile values):
+
+        Virtual Host Name: yourwebsite.com
+        Virtual Host Root: /var/www/yourwebsite.com
+        Config File: /usr/local/lsws/conf/vhosts/wordpress/yourwebsite.com.conf
+
+
+        docRoot                   /var/www/yourwebdir.com
+
+        index  {
+          useServer               0
+          indexFiles              index.php index.html
+        }
+
+        rewrite  {
+          enable                  1
+          autoLoadHtaccess        1
+        }
+
+        vhssl  {
+          keyFile                 /etc/letsencrypt/live/www.mightydeals.club/privkey.pem
+          certFile                /etc/letsencrypt/live/www.mightydeals.club/fullchain.pem
+          certChain               1
+        }
+
+        
+3. Add `Listener`. Choose listener by their Port. If the listener is existed, do not add new listener.
+4. Generate LetsEncrypt Cert:
+
+        certbot certonly --webroot -w /var/www/html -d www.yourwebsite.com 
+5. Add SSL path at `Virtual Hosts > Choose domain > SSL` add add the following:
+
+        Private Key File: /etc/letsencrypt/live/www.yourwebsite.com/privkey.pem
+        Certificate File: /etc/letsencrypt/live/www.yourwebsite.com/fullchain.pem
+        
+6. Do not add SSL path to the `Listener`
 
 # GENERAL COMMAND  
 
