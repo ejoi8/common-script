@@ -268,7 +268,7 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
 # OPENLITESPEED ADD NEW SUBDOMAIN
 
 1. Goto LiteSpeed WebAdmin Console: `xxx.xxx.xx.xx:7080` . Get admin password: `cat .litespeed_password`
-2. Add `Virtual Hosts`, add `Virtual Host Name`, add `Virtual Host Root` create folder, add `Config File` create by copy other config and change accordingly. `Config File` syntax as below (ignore KeyFile,certFile values):
+2. Add `Virtual Hosts`, add `Virtual Host Name`, add `Virtual Host Root` create folder, add `Config File` create by copy other config and change accordingly. Ignore KeyFile,certFile values:
 
         Virtual Host Name: yourwebsite.com
         Virtual Host Root: /var/www/yourwebsite.com
@@ -276,6 +276,7 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
         Enable Scripts/ExtApps: Yes
         Restrained: No
 
+**`Config File` syntax as below** 
 
         docRoot                   /var/www/yourwebdir.com
 
