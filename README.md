@@ -275,6 +275,7 @@ https://servernesia.com/833/mengaktifkan-https-openlitespeed/
         Config File: /usr/local/lsws/conf/vhosts/wordpress/yourwebsite.com.conf
         Enable Scripts/ExtApps: Yes
         Restrained: No
+        External App Set UID Mode: DocRoot UID <-- must, otherwise rewrite .htaccess not working
 
 **`Config File` syntax as below** 
 
