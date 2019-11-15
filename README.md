@@ -379,7 +379,8 @@ Add crontab
         Encryption: TLS
         SMTP Port: 587
         SMTP Username: without @gmail
-        #https://myaccount.google.com/lesssecureapps
+        
+https://myaccount.google.com/lesssecureapps
 
 
 
