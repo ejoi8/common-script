@@ -373,7 +373,13 @@ Add crontab
         2. git remote add origin <github repo url> <- local machine
         3. git push -u origin master <- local machine
         
+**Google SMTP setting**
 
+        SMTP Host: smtp.gmail.com
+        Encryption: TLS
+        SMTP Port: 587
+        SMTP Username: without @gmail
+        #https://myaccount.google.com/lesssecureapps
 
 
 
