@@ -371,7 +371,7 @@ Add crontab
         
         1. Create new repo in github.
         2. git remote add origin <github repo url> <- local machine
-        3. git push -u origin master <- local machine
+        3. git push -u origin master OR git push -f origin master <- local machine
         
 **Google SMTP setting**
 
