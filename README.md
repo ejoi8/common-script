@@ -229,6 +229,45 @@ Inside the generated file:
         });
     }
  
+**SAMPLE DROP COLUMN CONTAIN FOREIGN KEY**
+        
+        /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('kad_ahlis', function (Blueprint $table) {
+            $table->dropForeign('kad_ahlis_status_id_foreign'); 
+            $table->dropForeign('kad_ahlis_last_updated_by_foreign'); 
+            $table->dropColumn(['nota','bukti_bayaran','status_id','last_updated_by']);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('kad_ahlis', function (Blueprint $table) {
+            $table->text('nota');
+            $table->text('bukti_bayaran');
+            $table->unsignedBigInteger('status_id');
+            $table->unsignedBigInteger('last_updated_by');
+
+            $table->foreign('status_id')
+                    ->references('id')->on('ref_statuses')
+                    ->onDelete('cascade');
+
+            $table->foreign('last_updated_by')
+                    ->references('id')->on('users')
+                    ->onDelete('cascade');
+        });
+    }
+
 # OPENLITESPEED - digitalocean  
 
 **Lets encrypt SSL** 
