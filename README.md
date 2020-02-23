@@ -252,6 +252,7 @@ Inside the generated file:
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::table('kad_ahlis', function (Blueprint $table) {
             $table->text('nota');
             $table->text('bukti_bayaran');
