@@ -268,6 +268,33 @@ Inside the generated file:
         });
     }
 
+
+**MAKE NULLABLE**
+
+        /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('email')->nullable()->change();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('email')->change();
+        });
+    }
+
 # OPENLITESPEED - digitalocean  
 
 **Lets encrypt SSL** 
