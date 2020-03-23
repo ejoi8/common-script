@@ -450,4 +450,8 @@ Add crontab
 https://myaccount.google.com/lesssecureapps
 
 
+# Windows Hack
 
+**Copy large file via xcopy - copy large files**
+
+        xcopy /E C:\xampp\htdocs C:\laragon\www
