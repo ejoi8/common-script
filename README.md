@@ -455,3 +455,7 @@ https://myaccount.google.com/lesssecureapps
 **Copy large file via xcopy - copy large files**
 
         xcopy /E C:\xampp\htdocs C:\laragon\www
+        
+**Delete large forlder**
+
+        RMDIR /Q/S foldername
