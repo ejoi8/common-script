@@ -300,6 +300,13 @@ Inside the generated file:
             $table->string('email')->change();
         });
     }
+    
+** Clear all cache memory**
+
+        php artisan cache:clear  
+        php artisan config:clear
+        php artisan config:cache  
+        php artisan view:clear 
 
 # OPENLITESPEED - digitalocean  
 
