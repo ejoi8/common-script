@@ -307,6 +307,37 @@ Inside the generated file:
         php artisan config:clear
         php artisan config:cache  
         php artisan view:clear 
+        
+**Download Excel (csv)**
+
+        $array_data = array();
+        $myFile = public_path('location/folder')."/download".date("Y_m_d_H_i_s").".csv"; //save in folder.
+        $fh = fopen($myFile, 'a') or die("can't open file");
+        $stringData = "";
+        foreach ($array_data as $data_column) {
+            $stringData = $stringData.$data_column[0].",".$data_column[1].",".$data_column[2].",".$data_column[3]"\n"; 
+        }
+        $stringData = $stringData."\nTarikh muat turun: ".date("Y-m-d H:i:s");
+
+        fwrite($fh, $stringData);
+        fclose($fh);
+
+        //download EXCEL (CSV)
+        if (file_exists($myFile)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename='.basename($myFile));
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($myFile));
+            ob_clean();
+            flush();
+            readfile($myFile);
+            unlink($myFile); //delete file
+            exit;
+        }
 
 # OPENLITESPEED - digitalocean  
 
