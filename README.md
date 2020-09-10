@@ -301,7 +301,7 @@ Inside the generated file:
         });
     }
     
-** Clear all cache memory**
+**Clear all cache memory**
 
         php artisan cache:clear  
         php artisan config:clear
