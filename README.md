@@ -338,6 +338,57 @@ Inside the generated file:
             unlink($myFile); //delete file
             exit;
         }
+        
+**Ajax request**
+        
+        //controller
+         public function find_cawangan_kecil(Request $request)
+    {
+        if ($request->has('cawangan_id')) {
+            $cawangan_kecil = ref_cawangan_kecil::where('cawangan_id',$request->cawangan_id)->get();
+            return $cawangan_kecil->pluck('penerangan','id');
+        }
+        
+    }
+        
+        {{-- html component: change the cawangan list to populate the cawangan kecil  --}}
+        <strong>Cawangan:</strong>
+        {!! Form::select('cawangan_id', $ref_cawangan->pluck('nama','id'),null,['class' => 'form-control selectComponent dynamic'. ($errors->has('cawangan_id') ? ' is-invalid' : null) ,'placeholder' => 'Pilih jabatan...', 'id' => 'cawangan']); !!}
+        
+        
+        <strong>Cawangan kecil:</strong>
+        <select class="form-control selectComponent {{ ($errors->has('cawangan_kecil_id') ? ' is-invalid' : null) }}" name="cawangan_kecil_id" id="cawangan_kecil" placeholder="SILA PILIH CAWANGAN"><option>--Sila Pilih--</option></select>
+        
+        //script section
+        $(".container").on('change','#cawangan',function() {
+            if($(this).val() != ''){
+                $.ajax({
+                    type: "GET",
+                    // dataType: "html",
+                    url: "{{ route('request.find_cawangan_kecil') }}",
+                    data: {'cawangan_id': $("#cawangan").val() },
+                    beforeSend: function(){
+                         // $("#loading").show();
+                       },
+                    success: function(response) 
+                    {    
+                        // $("#loading").hide();   
+                        console.log(response);
+                        $("#cawangan_kecil").empty();
+                        $("#cawangan_kecil").append('<option>--Sila Pilih Cawangan Kecil--</option>');
+                        if(response)
+                        {
+                            $.each(response,function(key,value){
+                                $('#cawangan_kecil').append($("<option/>", {
+                                   value: key,
+                                   text: value
+                                }));
+                            });
+                        }
+                    }
+                });
+            }
+        });
 
 # OPENLITESPEED - digitalocean  
 
