@@ -36,6 +36,14 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 **Install ZipArchive**  
 
         apt-get install zip unzip
+        
+        Compress dir
+        tar -zcvf file.tar.gz /path/to/dir/
+
+        Compress multiple dir
+        tar -zcvf file.tar.gz dir1 dir2 dir3
+
+        https://www.cyberciti.biz/faq/how-to-tar-a-file-in-linux-using-command-line/
 
 **Change folder/files owner**  
 
