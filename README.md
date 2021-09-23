@@ -151,6 +151,10 @@ https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s
 
 # Laravel  
 
+Laravel new installation show error 500. Try following:
+
+    chmod 777 -R storage
+
 **error message**  
 
         @if ($errors->any())
