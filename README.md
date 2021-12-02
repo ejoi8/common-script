@@ -78,6 +78,10 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
         UPDATE mysql.db SET Host='%' WHERE Host='localhost' AND User='username';
         FLUSH PRIVILEGES;
         
+**Allow MYSQL Remote using client
+
+        https://www.digitalocean.com/community/tutorials/how-to-allow-remote-access-to-mysql
+        
 **Disable ONLY_FULL_GROUP_BY**
 
         SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
