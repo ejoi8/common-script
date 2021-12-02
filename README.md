@@ -72,6 +72,12 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 
         mysql> FLUSH PRIVILEGES;  
         
+**Update Privileges**
+
+        UPDATE mysql.user SET Host='%' WHERE Host='localhost' AND User='username';
+        UPDATE mysql.db SET Host='%' WHERE Host='localhost' AND User='username';
+        FLUSH PRIVILEGES;
+        
 **Disable ONLY_FULL_GROUP_BY**
 
         SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
