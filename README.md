@@ -120,6 +120,10 @@ Then run:
 **User saved in**  
 
         sudo vim /etc/passwd
+        
+**List all user**
+ 
+        getent passwd {1000..60000}
 
 **Disable Password Auth**  
 
