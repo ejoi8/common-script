@@ -78,6 +78,13 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
         UPDATE mysql.db SET Host='%' WHERE Host='localhost' AND User='username';
         FLUSH PRIVILEGES;
         
+**Add user allow all hosts**
+
+        CREATE USER 'admin'@'%' IDENTIFIED BY 'admin@123';
+        GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
+        SHOW GRANTS FOR 'admin'@'%';
+        FLUSH PRIVILEGES;
+        
 **Allow MYSQL Remote using client
 
         https://www.digitalocean.com/community/tutorials/how-to-allow-remote-access-to-mysql
