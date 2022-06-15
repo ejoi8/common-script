@@ -344,6 +344,8 @@ Inside the generated file:
         php artisan config:cache  
         php artisan view:clear 
         
+        php artisan optimize:clear
+        
 **Download Excel (csv)**
 
         $array_data = array();
