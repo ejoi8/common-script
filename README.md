@@ -45,6 +45,9 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
         
         Extract
         tar -xzvf file.tar.gz
+	
+	unzip all zip files in directory
+	for z in *.zip; do unzip "$z"; done
 
         https://www.cyberciti.biz/faq/how-to-tar-a-file-in-linux-using-command-line/
 
