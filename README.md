@@ -595,3 +595,80 @@ https://myaccount.google.com/lesssecureapps
 **VESTACP SSL LetsEncrypt Renew Problem
 
         https://community.letsencrypt.org/t/solved-vestacp-and-cloudflare-error-let-s-encrypt-new-auth-status-429-rate-limit/119649
+        
+             
+---
+
+
+
+# ==========
+# install lamp but skip php
+# ==========
+    https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04
+    1. sudo apt update
+    2. sudo apt -y upgrade
+    3. sudo apt install apache2
+    4. sudo apt install mysql-server
+
+# install PHP 8
+    https://www.cloudbooklet.com/how-to-upgrade-php-version-to-php-8-0-on-ubuntu/
+    
+    https://computingforgeeks.com/how-to-install-php-on-ubuntu-2/
+
+    ==Ubuntu 20.04|18.04 (Not needed on Ubuntu 22.04)==
+    5. sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common -y
+    6. sudo add-apt-repository ppa:ondrej/php
+    7. sudo apt install php8.0
+    8. sudo apt install composer
+
+    9. install php module
+
+        sudo apt install php8.0-amqp php8.0-common php8.0-gd php8.0-ldap php8.0-odbc php8.0-readline php8.0-sqlite3 php8.0-xsl php8.0-curl php8.0-gmp php8.0-mailparse php8.0-opcache php8.0-redis php8.0-sybase php8.0-yac php8.0-ast php8.0-dba php8.0-igbinary php8.0-mbstring php8.0-pgsql php8.0-rrd php8.0-tidy php8.0-yaml php8.0-bcmath php8.0-dev php8.0-imagick php8.0-memcached php8.0-phpdbg php8.0-smbclient php8.0-uuid php8.0-zip php8.0-bz2 php8.0-ds php8.0-imap php8.0-msgpack php8.0-pspell php8.0-snmp php8.0-xdebug php8.0-zmq php8.0-cgi php8.0-enchant php8.0-interbase php8.0-mysql php8.0-psr php8.0-soap php8.0-xhprof php8.0-cli php8.0-fpm php8.0-intl php8.0-oauth php8.0-raphf php8.0-solr php8.0-xml 
+
+    ==choose PHP==
+    https://readerstacks.com/how-to-install-php-8-0-in-ubuntu-20-04-lts/
+    10. sudo update-alternatives --config php <-- choose php 8.0
+
+# allow mysql
+    /etc/mysql/mysql.conf.d/mysqld.cnf <-- bind-address = 0.0.0.0
+
+    CREATE USER 'skp'@'%' IDENTIFIED BY 'skp@123';
+    GRANT ALL ON *.* TO 'skp'@'%' WITH GRANT OPTION;
+    FLUSH PRIVILEGES;
+    sudo ufw allow 3306
+
+# todo
+    1. change root path to /var/www/html/public in /etc/apache2/sites-available/000-default.conf
+    2. add .env and change the db credential
+    3. sudo chown -R www-data:www-data storage
+    4. sudo a2enmod rewrite
+    5. add the following in /etc/apache2/sites-available/000-default.conf
+
+    <Directory /var/www/html/public>
+		Options Indexes FollowSymLinks
+	 	AllowOverride All
+	</Directory>
+
+    sudo cp /etc/apache2/sites-available/example.com.conf /etc/apache2/sites-available/test.com.conf
+
+    <VirtualHost *:80>
+        ServerAdmin admin@example.com
+        ServerName example.com
+        ServerAlias www.example.com
+        DocumentRoot /var/www/example.com/public_html
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
+
+    sudo a2ensite dev.puspanita.org.my
+    sudo a2dissite 000-default.conf
+
+    sudo apt install certbot python3-certbot-apache
+
+    sudo ufw enable
+    sudo ufw app list
+    sudo ufw allow in "Apache Full"
+
+    sudo certbot --apache
+    sudo systemctl status certbot.timer <-- check status
+    sudo certbot renew --dry-run <-- test renewal process
