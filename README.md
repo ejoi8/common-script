@@ -21,6 +21,10 @@ cURL PHP Extension:
 Zip PHP Extension: 
 
         sudo apt-get install php-zip 
+	
+Copy folder with all content
+
+	sudo cp -av dir_to_copy dir_new_name
 
 
 **install lamp ubuntu 18.04**  
