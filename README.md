@@ -679,3 +679,125 @@ https://myaccount.google.com/lesssecureapps
     sudo certbot --apache
     sudo systemctl status certbot.timer <-- check status
     sudo certbot renew --dry-run <-- test renewal process
+
+
+# SSL certbot
+
+not tested yet
+	certbot --nginx -d example.com -d www.example.com
+
+	==FOR REFERENCE PURPOSE ONLY==
+	IMPORTANT NOTES:
+    - Congratulations! Your certificate and chain have been saved at:
+      /etc/letsencrypt/live/graduasi2.izoolz.com/fullchain.pem
+      Your key file has been saved at:
+      /etc/letsencrypt/live/graduasi2.izoolz.com/privkey.pem
+      Your cert will expire on 2022-11-15. To obtain a new or tweaked
+      version of this certificate in the future, simply run certbot again
+      with the "certonly" option. To non-interactively renew *all* of
+      your certificates, run "certbot renew"
+    - If you like Certbot, please consider supporting our work by:
+
+      Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+      Donating to EFF:                    https://eff.org/donate-le
+
+
+ref
+	https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04
+
+
+
+You can learn about your existing certificates by checking out the old domain's .conf file in /etc/letsencrypt/renewal/ or by doing sudo certbot certificates
+
+If you have changed domain name you can just install the nginx plugin
+
+```sudo apt install python-certbot-nginx```
+
+obtain a new certificate with
+
+``sudo certbot -d [newdomain.tld] --nginx``
+
+Afterwards you can check if there are any old, no longer needed certificates configured with
+
+```sudo certbot certificates```
+
+You will likely find an entry there for the cert with your old domain name. Remove that with
+
+```sudo certbot delete```
+
+and interactively pick which old ones to delete. This is important so that later you can just issue sudo certbot renew and not get errors due to the no longer relevant domain failing to authorize.
+
+Restart nginx and you are done.
+
+
+
+# NGIX add multiple website
+
+ref - https://webdock.io/en/docs/how-guides/shared-hosting-multiple-websites/how-configure-nginx-to-serve-multiple-websites-single-vps
+
+1. add new dir ```mkdir /var/www/html/yourwebfolder.com```
+2. change permission ```chown -R www-data:www-data /var/www/html/yourwebfolder.com```
+3. add or edit config ```nano /etc/nginx/sites-available/yourwebfolder.com.conf```
+
+		server {
+			listen 80;
+			server_name yourwebfolder.com;
+			root /var/www/yourwebfolder.com;
+
+			add_header X-Frame-Options "SAMEORIGIN";
+			add_header X-XSS-Protection "1; mode=block";
+			add_header X-Content-Type-Options "nosniff";
+
+			index index.php;
+
+			charset utf-8;
+
+			location / {
+				try_files $uri $uri/ /index.php?$query_string;
+			}
+
+			location = /favicon.ico { access_log off; log_not_found off; }
+			location = /robots.txt  { access_log off; log_not_found off; }
+
+			error_page 404 /index.php;
+
+			location ~ \.php$ {
+				fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+				fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+				include fastcgi_params;
+			}
+
+			location ~ /\.(?!well-known).* {
+				deny all;
+			}
+		}
+
+4. copy link using ```ln -s /etc/nginx/sites-available/yourwebfolder.com.conf /etc/nginx/sites-enabled/```
+5. nginx -t (check status & the following will show if OK)
+
+		nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+		nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+6. restart ngix
+
+		systemctl restart nginx
+
+7. MAKE SURE POINT DNS A RECORD TO SERVER IP. do with www & without www
+8. Add SSL
+
+		certbot --nginx -d yourwebfolder.com
+
+9. during wizard, choose to redirect to https. If forgot, add the following at the bottom of ```/etc/nginx/sites-available/yourwebfolder.com.conf```
+
+		server {
+			if ($host = graduasi2.izoolz.com) {
+				return 301 https://$host$request_uri;
+			} # managed by Certbot
+
+
+			listen 80;
+			server_name _ graduasi2.izoolz.com www.graduasi2.izoolz.com;
+			return 404; # managed by Certbot
+
+
+		}
