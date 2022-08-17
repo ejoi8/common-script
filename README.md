@@ -234,7 +234,8 @@ Inside the generated file:
         public function up()  
         {  
                 Schema::table('users', function (Blueprint $table) {  
-                        $table->string('profile')->nullable();  
+                        $table->string('profile')->nullable();
+			$table->softDeletes();
                 });  
         }  
         public function down()  
