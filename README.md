@@ -802,3 +802,22 @@ ref - https://webdock.io/en/docs/how-guides/shared-hosting-multiple-websites/how
 
 
 		}
+
+10. UPGRADE PHP7 to 8.1
+	1. sudo apt update && sudo apt -y upgrade
+	2. sudo systemctl reboot
+	3. sudo apt update
+	4. sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common -y
+	5. sudo add-apt-repository ppa:ondrej/php
+	6. sudo apt install --no-install-recommends php8.1
+	7. sudo apt-get install -y php8.1-cli php8.1-common php8.1-mysql php8.1-zip php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath
+	8. 
+	9. sudo apt install php8.1-fpm
+	10. change php7.4-fpm.sock to php8.1-fpm.sock in /etc/nginx/sites-available/xxxx.conf
+	
+		location ~ \.php$ {
+			fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+			fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+			include fastcgi_params;
+		    }
+	
