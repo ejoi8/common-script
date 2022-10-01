@@ -681,6 +681,13 @@ https://myaccount.google.com/lesssecureapps
     sudo systemctl status certbot.timer <-- check status
     sudo certbot renew --dry-run <-- test renewal process
 
+# Install/update Composer
+
+	sudo apt-get remove composer
+	sudo apt-get update
+	sudo apt-get install curl
+	sudo curl -s https://getcomposer.org/installer | php
+	sudo mv composer.phar /usr/local/bin/composer
 
 # SSL certbot
 
