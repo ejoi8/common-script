@@ -827,4 +827,12 @@ ref - https://webdock.io/en/docs/how-guides/shared-hosting-multiple-websites/how
 			fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
 			include fastcgi_params;
 		    }
-	
+
+# FIREWALL
+
+1. VestaCP firewall via CLI (make sure call full path sudo /usr/local/vesta/bin/)
+
+	1. refer https://vestacp.com/docs/cli/ for syntax
+	2. sample to list rule ``sudo /usr/local/vesta/bin/v-list-firewall``
+	3. sample to delete rule ``sudo /usr/local/vesta/bin/v-delete-firewall-rule 12``
+	4. sample to add rules ``sudo /usr/local/vesta/bin/v-add-firewall-rule ACCEPT 192.168.1.1/0 8383 TCP test``
