@@ -263,6 +263,7 @@ Inside the generated file:
                     ->references('id')->on('user_category')
                     ->onDelete('cascade');
         });
+	Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -272,10 +273,12 @@ Inside the generated file:
      */
     public function down()
     {
+    	Schema::disableForeignKeyConstraints();
         Schema::table('user', function (Blueprint $table) {
             $table->dropForeign('user_user_id_foreign');
             $table->dropColumn(['user_id']);
         });
+	Schema::enableForeignKeyConstraints();
     }
  
 **SAMPLE DROP COLUMN CONTAIN FOREIGN KEY**
