@@ -766,6 +766,11 @@ ref - https://webdock.io/en/docs/how-guides/shared-hosting-multiple-websites/how
 			location / {
 				try_files $uri $uri/ /index.php?$query_string;
 			}
+			
+			# add subfolder wordpress. If install WP in subfolder
+			location /tpc {
+				try_files $uri $uri/ /tpc/index.php?$args;
+			}
 
 			location = /favicon.ico { access_log off; log_not_found off; }
 			location = /robots.txt  { access_log off; log_not_found off; }
