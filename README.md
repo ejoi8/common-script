@@ -55,6 +55,16 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 
         https://www.cyberciti.biz/faq/how-to-tar-a-file-in-linux-using-command-line/
 
+ **Export Import Mysql/Mysql Dump**
+
+  	# export
+	mysqldump -u USERNAME -p DBNAME > NAME.sql
+
+  	# import
+ 	mysql -u USERNAME -p DBNAME < FILE.sql
+ 	
+ 	
+
 **Change folder/files owner**  
 
         chown -R www-data:www-data /var/www/html
